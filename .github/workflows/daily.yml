@@ -1,0 +1,14 @@
+name: Daily news
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch: {}
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python news_digest.py
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
