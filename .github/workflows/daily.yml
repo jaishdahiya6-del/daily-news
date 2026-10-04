@@ -1,7 +1,7 @@
 name: Daily news
 on:
   schedule:
-    - cron: "30 3 * * *"
+    - cron: "17 3 * * *"
   workflow_dispatch: {}
 jobs:
   send:
